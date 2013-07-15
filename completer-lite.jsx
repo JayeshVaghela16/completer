@@ -32,7 +32,9 @@ function findTextLayers(doc, foundLayers) {
     if (layerRef.typename == "ArtLayer") {
       if (layerRef.visible && layerRef.kind == "LayerKind.TEXT") {
         var text = layerRef.textItem;
-        foundLayers.push(text.font);
+        try {
+          foundLayers.push(text.font);
+        } catch(e) { }
       }
     } else if (layerRef.typename == "LayerSet") {
       if (layerRef.visible) {
